@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Stuart Hunter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+     /* Remove the navbar's default margin-bottom and rounded borders */ 
+     .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    .fonts14 {
+      font-size: 14pt;
+    }
+
+    .white {
+        color: white;
+    }
+
+    .dpurp {
+      background-color: #3c345c;
+    }
+
+    .green {
+      background-color: #5da4a6;
+    }
+
+    .purp {
+      background-color: #625c76;
+    }
+
+    .viol {
+      background-color: #a0a8d9;
+    }
+
+    .lpurp {
+      background-color: #b8aec8;
+    }
+
+    .space {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+    
+    .j_space {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .rcorners {
+      border-radius: 10px;
+    }
+
+    .grey {
+      background-color: #2b3137;
+    }
+    
+    .padded {
+      padding-top: 75px;
+    }
+
+    #hide_me {
+      display: none;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    table {
+      font-family: arial, sans-serif;
+    }
+  
+    td, th {
+      border: 1px solid #e9e9e9;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    #table-area th:first-child,
+    #table-area th:nth-child(2),
+    #table-area th:nth-child(6) {
+      min-width: 70px;
+    }
+
+    @media screen and (max-width: 1300px) {
+      .vanish {
+        display: none;
+      }
+      .row.content {height: auto;}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container-fluid">
+      <nav class="navbar navbar-fixed-top purp">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle viol" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand white" href="https://stuhunter4.github.io/hunterStuff/index.html">STUART HUNTER</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a class="white fonts14" href="#">About</a></li>
+              <li><a class="white fonts14" href="https://www.linkedin.com/in/smhunterart/">LinkedIn</a></li>
+              <li><a class="white fonts14" href="https://github.com/stuhunter4">Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid padded">
+        <div class="row content">
+            <div class="container">
+                <div class="container-fluid">
+                    <div class="row container-fluid">
+                        <div class="col-sm-3">
+                            <div class="well dpurp white">
+                                <h2>Matplotlib Challenge</h2>
+                                <p>Analysis and visualizations using a data set for 249 mice, with SCC tumor growth and a variety of drug regimes.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="well">
+                                <p>Observations and Insights : The best performing drug regimens were Capomulin, slightly second to Ramicane. Both drugs yielded far lower average tumor volume measurements, as well as a much lower range of tumor size measurements. A sample mouse's tumor treated with Capomulin began to yield positive results at roughly the middle timepoint of the study, when the tumor volume dropped dramatically below its original measurement. This progress was not linear. There is a strong association between weight and average tumor volume, within the Capomulin data. The weight of a given mouse was a potential predictor of smaller sized tumors.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="well">
+                                <p>Total number of mice for each treatment</p>
+                                <img src="output_data/Mice_per_Drug_Regime_matplotlib.png" class="img-responsive" style="width:100%" alt="Image">
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="well">
+                                <p>Distribution of female versus male mice</p>
+                                <img src="output_data/Gender_distribution_matplotlib.png" class="img-responsive" style="width:100%" alt="Image">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="well">
+                                <p>Box plot of the final tumor volume of each mouse across four regimens of interest</p>
+                                <img src="output_data/Tumor_Volume_BoxPlot.png" class="img-responsive" style="width:100%" alt="Image">
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="well">
+                                <p>Time point versus tumor volume for a mouse (l1509) treated with Capomulin</p>
+                                <img src="output_data/Timepoint_v_TumorVol_Capomulin_l509.png" class="img-responsive" style="width:100%" alt="Image">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="well">
+                                <p>The correlation coefficient between weight and average tumor volume is 0.84</p>
+                                <img src="output_data/Weight_v_AvgTumorVol_Regression.png" class="img-responsive" style="width:100%" alt="Image">
+                              </div>
+                            </div>
+                          </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>  
+       
+<footer class="container-fluid">
+  <div class="row">
+      <div class="col-sm-12 ml-md-auto">
+          <p class="text-center fonts14"><a class="white" href="https://www.linkedin.com/in/smhunterart/">LinkedIn</a>  ·  <a class="white" href="https://github.com/stuhunter4">Github</a></p>
+      </div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+</body>
+</html>      
